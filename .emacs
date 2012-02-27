@@ -4,8 +4,10 @@
        (list
         (expand-file-name "~/.emacs.d/site-lisp")
         (expand-file-name "~/.emacs.d/auto-install")
-        )
+	)
         load-path))
+
+;;自動でsymlinkをフォローする。
 (setq vc-follow-symlinks t)
 
 ;;起動メッセージを表示しない
@@ -34,20 +36,17 @@
 (prefer-coding-system 'utf-8-unix)
 (set-keyboard-coding-system 'utf-8)
 
-(global-font-lock-mode t)
-(setq font-lock-support-mode 'jit-lock-mode)
-
 ;; [HOME] [END]の設定
-;;(define-key global-map "\M-[1~" 'beginning-of-line)
-;;(define-key global-map [select] 'end-of-line)
+(define-key global-map "\M-[1~" 'beginning-of-line)
+(define-key global-map [select] 'end-of-line)
 
 ;; 色づけ
 (global-font-lock-mode t)
-(setq font-lock-support-mode 'jit-lock-mode)
-
-;; js2-mode
-(autoload 'js2-mode "js2-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+;;(setq font-lock-maximum-decoration t)
+;;(setq fast-lock nil)
+;;(setq lazy-lock nil)
+;;(setq jit-lock t)
+;;(setq font-lock-support-mode 'jit-lock-mode)
 
 ;; auto install
 (require 'auto-install)
@@ -58,8 +57,19 @@
 (require 'auto-complete)
 (global-auto-complete-mode t)
 
+;; hide-show minor用のキーバインド(Ctrl-\)
+(global-set-key (kbd "C-\\") 'hs-toggle-hiding)
+;; 検索で開かないようにする
+(setq hs-isearch-open nil)
+
+;; js2-mode
+(autoload 'js2-mode "js2-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-hook 'js2-mode-hook '(lambda ()
+    (hs-minor-mode 1)))
+
+;; PHP mode
 (require 'php-mode)
-;; PHP mode(require 'php-mode)
 (add-hook 'php-mode-hook '(lambda ()
     (setq c-basic-offset 4)
     (setq c-tab-width 4)
@@ -69,10 +79,12 @@
     (c-set-offset 'substatement-open 0)
     (c-set-offset 'arglist-intro '+)
     (c-set-offset 'arglist-close 0)
+    (hs-minor-mode 1)
 ) t)
 (add-to-list 'auto-mode-alist '("\\.ctp$" . php-mode))
 
-;; sql-mode(require 'sql-indent)
+;; SQL-mode
+(require 'sql-indent)
 (add-hook 'sql-mode-hook
     (function (lambda ()
                 (setq tab-width 2))))
@@ -103,7 +115,8 @@
 
 ;; for html
 (mmm-add-classes
- '((mmm-html-css-mode
+ '(
+   (mmm-html-css-mode
     :submode css-mode
     :face mmm-code-submode-face
     :front "<style[^>]*>\\([^<]*<!--\\)?\n"
@@ -126,4 +139,3 @@
 (mmm-add-mode-ext-class 'html-mode nil 'mmm-html-css-mode)
 (mmm-add-mode-ext-class 'html-mode nil 'mmm-html-javascript-mode)
 ;;(mmm-add-mode-ext-class 'php-mode nil 'mmm-php-sql-mode)
-
