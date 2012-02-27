@@ -6,6 +6,7 @@
         (expand-file-name "~/.emacs.d/auto-install")
         )
         load-path))
+(setq vc-follow-symlinks t)
 
 ;;起動メッセージを表示しない
 (setq inhibit-startup-message t)
@@ -57,6 +58,7 @@
 (require 'auto-complete)
 (global-auto-complete-mode t)
 
+(require 'php-mode)
 ;; PHP mode(require 'php-mode)
 (add-hook 'php-mode-hook '(lambda ()
     (setq c-basic-offset 4)
@@ -123,5 +125,5 @@
    ))
 (mmm-add-mode-ext-class 'html-mode nil 'mmm-html-css-mode)
 (mmm-add-mode-ext-class 'html-mode nil 'mmm-html-javascript-mode)
-(mmm-add-mode-ext-class 'php-mode nil 'mmm-php-sql-mode)
+;;(mmm-add-mode-ext-class 'php-mode nil 'mmm-php-sql-mode)
 
