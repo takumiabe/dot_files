@@ -124,3 +124,4 @@
 (mmm-add-mode-ext-class 'html-mode nil 'mmm-html-css-mode)
 (mmm-add-mode-ext-class 'html-mode nil 'mmm-html-javascript-mode)
 (mmm-add-mode-ext-class 'php-mode nil 'mmm-php-sql-mode)
+
