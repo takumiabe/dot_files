@@ -7,6 +7,9 @@
         )
         load-path))
 
+;;自動でsymlinkをフォローする。
+(setq vc-follow-symlinks t)
+
 ;;起動メッセージを表示しない
 (setq inhibit-startup-message t)
 
@@ -37,8 +40,8 @@
 (setq font-lock-support-mode 'jit-lock-mode)
 
 ;; [HOME] [END]の設定
-;;(define-key global-map "\M-[1~" 'beginning-of-line)
-;;(define-key global-map [select] 'end-of-line)
+(define-key global-map "\M-[1~" 'beginning-of-line)
+(define-key global-map [select] 'end-of-line)
 
 ;; 色づけ
 (global-font-lock-mode t)
@@ -56,6 +59,8 @@
 ;; auto complete
 (require 'auto-complete)
 (global-auto-complete-mode t)
+;; 4文字目から補完する。
+(setq ac-auto-start 4)
 
 ;; PHP mode(require 'php-mode)
 (add-hook 'php-mode-hook '(lambda ()
