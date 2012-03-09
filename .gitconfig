@@ -1,0 +1,7 @@
+[user]
+	name = abe
+	email = abe@rio.ne.jp
+[alias]
+st = status
+ci = commit
+co = checkout
