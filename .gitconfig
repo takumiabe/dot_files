@@ -1,7 +1,13 @@
-[user]
-	name = abe
-	email = abe@rio.ne.jp
 [alias]
-st = status
-ci = commit
-co = checkout
+	br = branch
+	ci = commit
+	co = checkout
+	ll = log --graph --pretty='format:%C(yellow)%h%Cblue%d%Creset %s %C(green bold)%an, %ar%Creset'
+	lll = log --all --graph --pretty='format:%C(yellow)%h%Cblue%d%Creset %s %C(green bold)%an, %ar%Creset'
+	lla = log --all --graph --pretty='format:%C(yellow)%h%Cblue%d%Creset %s %C(green bold)%an, %ar%Creset'
+	st = status
+[color]
+	ui = auto
+[user]
+	name = Takumi Abe
+	email = abe@engraphia.com

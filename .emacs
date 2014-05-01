@@ -1,11 +1,36 @@
+;; package manager
+(require 'package)
+(setq package-user-dir (expand-file-name "~/.emacs.d/packages"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(package-initialize)
+
 ;;自分用のロードパスの設定
 (setq load-path
       (append
        (list
         (expand-file-name "~/.emacs.d/site-lisp")
         (expand-file-name "~/.emacs.d/auto-install")
-	)
-        load-path))
+        )
+       load-path))
+
+(require 'cl)
+(defvar require-packages
+  '(
+    auto-complete
+    js2-mode
+    web-mode
+    whitespace
+    molokai-theme
+    ))
+
+(let ((not-installed (loop for x in require-packages
+                           when (not (package-installed-p x))
+                           collect x)))
+  (when not-installed
+    (package-refresh-contents)
+    (dolist (pkg not-installed)
+      (package-install pkg))))
 
 ;;自動でsymlinkをフォローする。
 (setq vc-follow-symlinks t)
@@ -14,7 +39,8 @@
 (setq inhibit-startup-message t)
 
 ;;行番号
-;;(global-linum-mode t)
+(global-linum-mode t)
+(setq linum-format "%3d  ")
 
 ;; #hoge#を作らない
 (setq-default make-backup-files nil)
@@ -39,14 +65,10 @@
 ;; [HOME] [END]の設定
 (define-key global-map "\M-[1~" 'beginning-of-line)
 (define-key global-map [select] 'end-of-line)
-
-;; 色づけ
-(global-font-lock-mode t)
-;;(setq font-lock-maximum-decoration t)
-;;(setq fast-lock nil)
-;;(setq lazy-lock nil)
-;;(setq jit-lock t)
-;;(setq font-lock-support-mode 'jit-lock-mode)
+(define-key global-map [prior] 'scroll-down-command)
+(define-key global-map [next] 'scroll-up-command)
+(define-key global-map [home] 'beginning-of-line)
+(define-key global-map [end] 'end-of-line)
 
 ;; auto install
 (require 'auto-install)
@@ -58,86 +80,79 @@
 (global-auto-complete-mode t)
 ;; 4文字目から補完する。
 (setq ac-auto-start 4)
+(setq ac-modes (append ac-modes (list 'ruby-mode 'web-mode)))
 
 ;; hide-show minor用のキーバインド(Ctrl-\)
 (global-set-key (kbd "C-\\") 'hs-toggle-hiding)
 ;; 検索で開かないようにする
 (setq hs-isearch-open nil)
 
+;; customize ruby-mode
+(setq ruby-deep-indent-paren-style nil)
+(setq ruby-insert-encoding-magic-comment nil)
+
 ;; js2-mode
-(autoload 'js2-mode "js2-mode" nil t)
+(require 'js2-mode)
+;;(autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-hook 'js2-mode-hook '(lambda ()
+    (setq js2-basic-offset 2)
     (hs-minor-mode 1)))
 
-;; PHP mode
-(require 'php-mode)
-(add-hook 'php-mode-hook '(lambda ()
-    (setq c-basic-offset 4)
-    (setq c-tab-width 4)
-    (setq indent-tabs-mode nil)
-    (setq tab-width 4)
-    (setq-default tab-width 4)
-    (c-set-offset 'substatement-open 0)
-    (c-set-offset 'arglist-intro '+)
-    (c-set-offset 'arglist-close 0)
-    (hs-minor-mode 1)
-) t)
-(add-to-list 'auto-mode-alist '("\\.ctp$" . php-mode))
+;; web-mode
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
-;; SQL-mode
-(require 'sql-indent)
-(add-hook 'sql-mode-hook
-    (function (lambda ()
-                (setq tab-width 2))))
+;; color-theme molokai
+(require 'molokai-theme)
 
-;; mmm-mode
-(add-to-list 'load-path "~/.emacs.d/plugins/mmm-mode")
-;;(require 'mmm-mode)
-(require 'mmm-auto)
-(setq mmm-global-mode 'maybe)
-(setq mmm-submode-decoration-level 0)
-(set-face-background 'mmm-default-submode-face "#333333")
+;; whitespace mode
+;; 空白文字に色を付ける
+(require 'whitespace)
+;; space-markとtab-mark、それからspacesとtrailingを対象とする
+(setq whitespace-style '(space-mark tab-mark face spaces trailing))
+(setq whitespace-display-mappings
+      '(
+        ;; (space-mark   ?\     [?\u00B7]     [?.]) ; space - centered dot
+        (space-mark   ?\xA0  [?\u00A4]     [?_]) ; hard space - currency
+        (space-mark   ?\x8A0 [?\x8A4]      [?_]) ; hard space - currency
+        (space-mark   ?\x920 [?\x924]      [?_]) ; hard space - currency
+        (space-mark   ?\xE20 [?\xE24]      [?_]) ; hard space - currency
+        (space-mark   ?\xF20 [?\xF24]      [?_]) ; hard space - currency
+        (space-mark ?\u3000 [?\u25a1] [?_ ?_]) ; full-width-space - square
+        ;; NEWLINE is displayed using the face `whitespace-newline'
+        ;; (newline-mark ?\n    [?$ ?\n])  ; eol - dollar sign
+        ;; (newline-mark ?\n    [?\u21B5 ?\n] [?$ ?\n]); eol - downwards arrow
+        ;; (newline-mark ?\n    [?\u00B6 ?\n] [?$ ?\n]); eol - pilcrow
+        ;; (newline-mark ?\n    [?\x8AF ?\n]  [?$ ?\n]); eol - overscore
+        ;; (newline-mark ?\n    [?\x8AC ?\n]  [?$ ?\n]); eol - negation
+        ;; (newline-mark ?\n    [?\x8B0 ?\n]  [?$ ?\n]); eol - grade
+        ;;
+        ;; WARNING: the mapping below has a problem.
+        ;; When a TAB occupies exactly one column, it will display the
+        ;; character ?\xBB at that column followed by a TAB which goes to
+        ;; the next TAB column.
+        ;; If this is a problem for you, please, comment the line below.
+        (tab-mark     ?\t    [?\u00BB ?\t] [?\\ ?\t]) ; tab - left quote mark
+        ))
+;; whitespace-spaceの定義を全角スペースにし、色をつけて目立たせる
+(setq whitespace-space-regexp "\\(\u3000+\\)")
+(set-face-foreground 'whitespace-space "cyan")
+(set-face-background 'whitespace-space 'nil)
+;; whitespace-trailingを色つきアンダーラインで目立たせる
+(set-face-underline  'whitespace-trailing t)
+(set-face-foreground 'whitespace-trailing "cyan")
+(set-face-background 'whitespace-trailing 'nil)
+;; whitespace-tab
+(set-face-attribute 'whitespace-tab nil
+                    :background "#232323"
+                    :foreground "GreenYellow"
+                    :weight 'bold)
 
-;; for html-erb
-(mmm-add-group
- 'fancy-html
- '((html-erb-mode
-    :submode ruby-mode
-    :match-face (("<%#" . mmm-comment-submode-face)
-                 ("<%=" . mmm-output-submode-face)
-                 ("<%"  . mmm-code-submode-face))
-    :front "<%[#=]?"
-    :back "%>"
-    :insert ((?% erb-code       nil @ "<%" @ " " _ " " @ "%>" @)
-             (?# erb-comment    nil @ "<%#" @ " " _ " " @ "%>" @)
-             (?# erb-expression nil @ "<%=" @ " " _ " " @ "%>" @)))))
-
-(add-to-list 'mmm-mode-ext-classes-alist '(html-mode nil fancy-html))
-
-;; for html
-(mmm-add-classes
- '(
-   (mmm-html-css-mode
-    :submode css-mode
-    :face mmm-code-submode-face
-    :front "<style[^>]*>\\([^<]*<!--\\)?\n"
-    :back "\\(\\s-*-->\\)?\n[ \t]*</style>"
-    )
-   (mmm-html-javascript-mode
-    :submode js2-mode
-    :face mmm-code-submode-face
-    :front "<script[^>]*>\\([^<]*<!--\\)?\n"
-    :back "</script>"
-    )
-   (mmm-php-sql-mode
-    :submode sql-mode
-    :face mmm-code-submode-face
-    :front "<<<\\(SQL\\|EOT\\)$"
-    :back "^~1"
-    :save-matches 1
-    )
-   ))
-(mmm-add-mode-ext-class 'html-mode nil 'mmm-html-css-mode)
-(mmm-add-mode-ext-class 'html-mode nil 'mmm-html-javascript-mode)
-;;(mmm-add-mode-ext-class 'php-mode nil 'mmm-php-sql-mode)
+(global-whitespace-mode 1)
