@@ -1,4 +1,4 @@
-;; package manager
+; package manager
 (require 'package)
 (setq package-user-dir (expand-file-name "~/.emacs.d/packages"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
@@ -10,7 +10,6 @@
       (append
        (list
         (expand-file-name "~/.emacs.d/site-lisp")
-        (expand-file-name "~/.emacs.d/auto-install")
         )
        load-path))
 
@@ -22,6 +21,8 @@
     web-mode
     whitespace
     molokai-theme
+    projectile
+    projectile-rails
     ))
 
 (let ((not-installed (loop for x in require-packages
@@ -69,11 +70,54 @@
 (define-key global-map [next] 'scroll-up-command)
 (define-key global-map [home] 'beginning-of-line)
 (define-key global-map [end] 'end-of-line)
+(define-key global-map [?\M-¥] [?\M-\\])
+;; for iTerm2
+(define-key input-decode-map "\e[1;5A" [C-up])
+(define-key input-decode-map "\e[1;5B" [C-down])
+(define-key input-decode-map "\e[1;5C" [C-right])
+(define-key input-decode-map "\e[1;5D" [C-left])
+(define-key input-decode-map "\e[1;6A" [C-S-up])
+(define-key input-decode-map "\e[1;6B" [C-S-down])
+(define-key input-decode-map "\e[1;6C" [C-S-right])
+(define-key input-decode-map "\e[1;6D" [C-S-left])
+(define-key input-decode-map "\e[1;8A" [C-M-up])
+(define-key input-decode-map "\e[1;8B" [C-M-down])
+(define-key input-decode-map "\e[1;8C" [C-M-right])
+(define-key input-decode-map "\e[1;8D" [C-M-left])
+(define-key input-decode-map "\e[1;9A" [M-up])
+(define-key input-decode-map "\e[1;9B" [M-down])
+(define-key input-decode-map "\e[1;9C" [M-right])
+(define-key input-decode-map "\e[1;9D" [M-left])
+(define-key input-decode-map "\e[1;10A" [S-M-up])
+(define-key input-decode-map "\e[1;10B" [S-M-down])
+(define-key input-decode-map "\e[1;10C" [S-M-right])
+(define-key input-decode-map "\e[1;10D" [S-M-left])
 
-;; auto install
-(require 'auto-install)
-(setq auto-install-directory "~/.emacs.d/auto-install/")
-;;(auto-install-update-emacswiki-package-name t)
+(defun my-mark-current-word (&optional arg allow-extend)
+  "Put point at beginning of current word, set mark at end."
+  (interactive "p\np")
+  (setq arg (if arg arg 1))
+  (if (and allow-extend
+           (or (and (eq last-command this-command) (mark t))
+               (region-active-p)))
+      (set-mark
+       (save-excursion
+         (when (< (mark) (point))
+           (setq arg (- arg)))
+         (goto-char (mark))
+         (forward-word arg)
+         (point)))
+    (let ((wbounds (bounds-of-thing-at-point 'word)))
+      (unless (consp wbounds)
+          (error "No word at point"))
+      (if (>= arg 0)
+          (goto-char (car wbounds))
+        (goto-char (cdr wbounds)))
+      (push-mark (save-excursion
+                   (forward-word arg)
+                   (point)))
+      (activate-mark))))
+(global-set-key "\M-@" 'my-mark-current-word)
 
 ;; auto complete
 (require 'auto-complete)
@@ -154,5 +198,11 @@
                     :background "#232323"
                     :foreground "GreenYellow"
                     :weight 'bold)
-
 (global-whitespace-mode 1)
+
+;; projectile for rails project
+(setq projectile-keymap-prefix (kbd "C-c C-p")) ;; set C-c C-p to projectile prefix
+(require 'projectile)
+(projectile-global-mode)
+(require 'projectile-rails)
+(add-hook 'projectile-mode-hook 'projectile-rails-on)

@@ -2,6 +2,8 @@
 	br = branch
 	ci = commit
 	co = checkout
+	d = diff
+	f = ls-files
 	ll = log --graph --pretty='format:%C(yellow)%h%Cblue%d%Creset %s %C(green bold)%an, %ar%Creset'
 	lll = log --all --graph --pretty='format:%C(yellow)%h%Cblue%d%Creset %s %C(green bold)%an, %ar%Creset'
 	lla = log --all --graph --pretty='format:%C(yellow)%h%Cblue%d%Creset %s %C(green bold)%an, %ar%Creset'
