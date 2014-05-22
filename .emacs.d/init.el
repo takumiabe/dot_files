@@ -120,8 +120,10 @@
 (global-set-key "\M-@" 'my-mark-current-word)
 
 ;; auto complete
+(require 'popup)
 (require 'auto-complete)
 (global-auto-complete-mode t)
+(add-to-list 'ac-dictionary-directories "~/dict/")
 ;; 4文字目から補完する。
 (setq ac-auto-start 4)
 (setq ac-modes (append ac-modes (list 'ruby-mode 'web-mode)))
@@ -134,6 +136,9 @@
 ;; customize ruby-mode
 (setq ruby-deep-indent-paren-style nil)
 (setq ruby-insert-encoding-magic-comment nil)
+(add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("/Capfile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("/Gemfile" . ruby-mode))
 
 ;; js2-mode
 (require 'js2-mode)
