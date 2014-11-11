@@ -4,12 +4,16 @@
 	co = checkout
 	d = diff
 	f = ls-files
-	ll = log --graph --pretty='format:%C(yellow)%h%Cblue%d%Creset %s %C(green bold)%an, %ar%Creset'
-	lll = log --all --graph --pretty='format:%C(yellow)%h%Cblue%d%Creset %s %C(green bold)%an, %ar%Creset'
-	lla = log --all --graph --pretty='format:%C(yellow)%h%Cblue%d%Creset %s %C(green bold)%an, %ar%Creset'
+	l = log
+	ll = log --graph
+	lll = log --graph --all
 	st = status
 [color]
 	ui = auto
 [user]
 	name = Takumi Abe
 	email = abe@engraphia.com
+[log]
+	date = short
+[format]
+	pretty = %C(yellow)%h%Cblue%d%Creset %s %C(green bold)%an, %ad(%ar)%Creset
