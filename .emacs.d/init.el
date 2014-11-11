@@ -19,6 +19,10 @@
     auto-complete
     js2-mode
     web-mode
+    haml-mode
+    php-mode
+    markdown-mode
+    yaml-mode
     whitespace
     molokai-theme
     projectile
@@ -43,11 +47,17 @@
 (global-linum-mode t)
 (setq linum-format "%3d  ")
 
+;;表示が乱れるのでmenuを非表示にする
+(menu-bar-mode -1)
+
 ;; #hoge#を作らない
 (setq-default make-backup-files nil)
 
 ;; ~を作らない
 (setq-default delete-auto-save-files t)
+
+;;file名補完でignore-case
+(setq completion-ignore-case t)
 
 ;; インデントはspaceで
 (setq-default indent-tabs-mode nil)
@@ -93,6 +103,19 @@
 (define-key input-decode-map "\e[1;10C" [S-M-right])
 (define-key input-decode-map "\e[1;10D" [S-M-left])
 
+;; 現在の行をハイライトする
+(defface hlline-face
+  '(
+    (((class color) (background dark))
+     (:background "#303030"))
+    (((class color) (background light))
+     (:background  "#98FB98"))
+    (t ()))
+  "*Face used by hl-line.")
+(setq hl-line-face 'hlline-face)
+(global-hl-line-mode)
+
+;; インクリメンタルに現在位置の単語をmarkする
 (defun my-mark-current-word (&optional arg allow-extend)
   "Put point at beginning of current word, set mark at end."
   (interactive "p\np")
@@ -118,6 +141,11 @@
                    (point)))
       (activate-mark))))
 (global-set-key "\M-@" 'my-mark-current-word)
+
+;; 同名ファイルのバッファ名の識別文字を変更する
+(require 'uniquify)
+;; ファイル名<ディレクトリ名>
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
 ;; auto complete
 (require 'popup)
@@ -157,6 +185,7 @@
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
 
 ;; color-theme molokai
 (require 'molokai-theme)
@@ -204,6 +233,11 @@
                     :foreground "GreenYellow"
                     :weight 'bold)
 (global-whitespace-mode 1)
+
+;; ruby-mode
+;; _ は空白扱いとする
+(add-hook 'ruby-mode-hook
+          (lambda () (modify-syntax-entry ?_ "w")))
 
 ;; projectile for rails project
 (setq projectile-keymap-prefix (kbd "C-c C-p")) ;; set C-c C-p to projectile prefix
