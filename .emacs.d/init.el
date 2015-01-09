@@ -19,6 +19,7 @@
     auto-complete
     js2-mode
     web-mode
+    csv-mode
     coffee-mode
     haml-mode
     php-mode
