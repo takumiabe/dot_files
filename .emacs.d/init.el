@@ -19,6 +19,7 @@
     auto-complete
     js2-mode
     web-mode
+    coffee-mode
     haml-mode
     php-mode
     markdown-mode
@@ -186,6 +187,15 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
+
+;; coffee-mode
+(defun coffee-custom ()
+  "coffee-mode-hook"
+  (and (set (make-local-variable 'tab-width) 2) ; tab幅を2に
+       (set (make-local-variable 'coffee-tab-width) 2)) ; tab幅を2に
+  )
+(add-hook 'coffee-mode-hook
+          '(lambda() (coffee-custom)))
 
 ;; color-theme molokai
 (require 'molokai-theme)
