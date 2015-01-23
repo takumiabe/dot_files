@@ -168,6 +168,7 @@
 (setq hs-isearch-open nil)
 
 ;; customize ruby-mode
+(setq ruby-use-smie nil)
 (setq ruby-align-chained-calls t)
 (setq ruby-deep-indent-paren-style nil)
 (setq ruby-insert-encoding-magic-comment nil)
