@@ -54,10 +54,10 @@
 (menu-bar-mode -1)
 
 ;; #hoge#を作らない
-(setq-default make-backup-files nil)
+(setq make-backup-files nil)
 
 ;; ~を作らない
-(setq-default delete-auto-save-files t)
+(setq delete-auto-save-files t)
 
 ;;file名補完でignore-case
 (setq completion-ignore-case t)
@@ -157,7 +157,7 @@
 (add-to-list 'ac-dictionary-directories "~/dict/")
 ;; 4文字目から補完する。
 (setq ac-auto-start 4)
-(setq ac-modes (append ac-modes (list 'ruby-mode 'web-mode)))
+(setq ac-modes (append ac-modes (list 'ruby-mode 'web-mode 'haml-mode)))
 
 ;; css-mode
 (setq css-indent-offset 2)
@@ -211,6 +211,7 @@
   )
 (add-hook 'coffee-mode-hook
           '(lambda() (coffee-custom)))
+(add-to-list 'auto-mode-alist '("\\.coffee.erb\\'" . coffee-mode))
 
 ;; color-theme molokai
 (require 'molokai-theme)
