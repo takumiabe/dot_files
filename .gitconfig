@@ -17,3 +17,5 @@
 	date = short
 [format]
 	pretty = %C(yellow)%h%Cblue%d%Creset %s %C(green bold)%an, %ad(%ar)%Creset
+[push]
+	default = current
