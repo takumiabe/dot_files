@@ -23,6 +23,7 @@
     coffee-mode
     haml-mode
     php-mode
+    scss-mode
     markdown-mode
     yaml-mode
     whitespace
@@ -159,7 +160,13 @@
 (setq ac-modes (append ac-modes (list 'ruby-mode 'web-mode)))
 
 ;; css-mode
-(add-to-list 'auto-mode-alist '("\\.scss$" . css-mode))
+(setq css-indent-offset 2)
+;;(add-to-list 'auto-mode-alist '("\\.scss$" . css-mode))
+
+;; scss-mode
+(require 'scss-mode)
+(add-hook 'scss-mode-hook '(lambda()
+  (setq scss-compile-at-save nil)))
 
 ;; hide-show minor用のキーバインド(Ctrl-\)
 (require 'hideshow)
