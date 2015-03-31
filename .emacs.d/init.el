@@ -1,7 +1,6 @@
 ; package manager
 (require 'package)
 (setq package-user-dir (expand-file-name "~/.emacs.d/packages"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
@@ -17,6 +16,7 @@
 (defvar require-packages
   '(
     auto-complete
+    editorconfig
     js2-mode
     web-mode
     csv-mode
@@ -158,6 +158,10 @@
 ;; 4文字目から補完する。
 (setq ac-auto-start 4)
 (setq ac-modes (append ac-modes (list 'ruby-mode 'web-mode 'haml-mode)))
+
+;; editorconfig
+(setq edconf-exec-path "/usr/local/bin/editorconfig")
+(require 'editorconfig)
 
 ;; css-mode
 (setq css-indent-offset 2)
