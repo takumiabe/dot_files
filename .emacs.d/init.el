@@ -74,10 +74,8 @@
               scroll-step 4)
 
 ;;日本語でUTF-8
-(set-language-environment "Japanese")
-(set-terminal-coding-system 'utf-8)
 (prefer-coding-system 'utf-8-unix)
-(set-keyboard-coding-system 'utf-8)
+(setq-default buffer-file-coding-system 'utf-8-unix)
 
 ;; [HOME] [END]の設定
 (define-key global-map "\M-[1~" 'beginning-of-line)
