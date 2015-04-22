@@ -4,6 +4,9 @@
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
+(defmacro add-hook-fn (name &rest body)
+  `(add-hook ,name #'(lambda() ,@body)))
+
 ;;自分用のロードパスの設定
 (setq load-path
       (append
@@ -275,7 +278,14 @@
 (projectile-global-mode)
 (require 'projectile-rails)
 (add-hook 'projectile-mode-hook 'projectile-rails-on)
-
+;; define C-c r C-f to factory
+(defun projectile-rails-find-factory ()
+  (interactive)
+  (projectile-rails-find-resource "factory: " '(("spec/factories/" "spec/factories/\\(.+\\)\\.rb$"))))
+(add-hook-fn 'projectile-mode-hook
+             (projectile-rails-on)
+             (define-key projectile-mode-map (kbd "C-c r C-f") 'projectile-rails-find-factory)
+             )
 
 ;; 幅を直す
 (defun set-east-asian-ambiguous-width (width)
