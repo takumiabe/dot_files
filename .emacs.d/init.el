@@ -1,7 +1,10 @@
 ; package manager
 (require 'package)
 (setq package-user-dir (expand-file-name "~/.emacs.d/packages"))
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/")
+             '("marmalade" . "http://marmalade-repo.org/packages/")
+             )
 (package-initialize)
 
 (defmacro add-hook-fn (name &rest body)
