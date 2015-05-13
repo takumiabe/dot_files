@@ -7,8 +7,25 @@
              )
 (package-initialize)
 
+(defmacro with-system (type &rest body)
+  "Evaluate body if `system-type' equals type."
+  `(when (eq system-type ,type)
+     ,@body))
+
 (defmacro add-hook-fn (name &rest body)
   `(add-hook ,name #'(lambda() ,@body)))
+
+(defun copy-from-osx ()
+  (shell-command-to-string "pbpaste"))
+(defun paste-to-osx (text &optional push)
+  (let ((process-connection-type nil))
+    (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+      (process-send-string proc text)
+      (process-send-eof proc))))
+(with-system
+ 'darwin
+ (setq interprogram-cut-function 'paste-to-osx)
+ (setq interprogram-paste-function 'copy-from-osx))
 
 ;;自分用のロードパスの設定
 (setq load-path
