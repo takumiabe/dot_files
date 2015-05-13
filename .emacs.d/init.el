@@ -39,6 +39,7 @@
 (defvar require-packages
   '(
     auto-complete
+    go-mode
     js2-mode
     web-mode
     csv-mode
@@ -217,6 +218,14 @@
 (add-hook 'js2-mode-hook '(lambda ()
     (setq js2-basic-offset 2)
     (hs-minor-mode 1)))
+
+;; go-mode
+(require 'go-mode)
+(add-hook 'go-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook 'gofmt-before-save)
+            (setq tab-width 2)
+            (setq indent-tabs-mode t)))
 
 ;; web-mode
 (require 'web-mode)
