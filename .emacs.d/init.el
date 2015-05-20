@@ -203,8 +203,10 @@
 
 ;; scss-mode
 (require 'scss-mode)
-(add-hook 'scss-mode-hook '(lambda()
-  (setq scss-compile-at-save nil)))
+(add-hook 'scss-mode-hook
+          '(lambda()
+             (modify-syntax-entry ?, " " css-mode-syntax-table)
+             (setq scss-compile-at-save nil)))
 
 ;; hide-show minor用のキーバインド(Ctrl-\)
 (require 'hideshow)
