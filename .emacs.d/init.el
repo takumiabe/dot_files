@@ -106,6 +106,9 @@
 (define-key global-map [home] 'beginning-of-line)
 (define-key global-map [end] 'end-of-line)
 
+;; メール作成のキーバインドを殺す
+(define-key global-map "\C-xm" nil)
+
 (with-system
  'darwin
  ;; Macで\を上手く出せない問題
