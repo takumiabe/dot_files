@@ -1,22 +1,22 @@
 [alias]
-	br = branch
-	ci = commit
-	co = checkout
-	d = diff
-	dc = diff --cached
-	f = ls-files
-	l = log
-	ll = log --graph
-	lll = log --graph --all
-	st = status
+    br = branch
+    ci = commit
+    co = checkout
+    d = diff
+    dc = diff --cached
+    f = ls-files
+    l = log
+    ll = log --graph
+    lll = log --graph --all
+    st = status
 [color]
-	ui = auto
+    ui = auto
 [user]
-	name = Takumi Abe
-	email = abe@engraphia.com
+    name = Takumi Abe
+    email = abe@engraphia.com
 [log]
-	date = short
+    date = short
 [format]
-	pretty = %C(yellow)%h%Cblue%d%Creset %s %C(green bold)%an, %ad(%ar)%Creset
+    pretty = %C(yellow)%h%Cblue%d%Creset %s %C(green bold)%an, %ad(%ar)%Creset
 [push]
-	default = current
+    default = current
