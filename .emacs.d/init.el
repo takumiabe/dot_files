@@ -8,15 +8,6 @@
 (setq init-loader-show-log-after-init nil)
 (init-loader-load "~/.emacs.d/inits")
 
-; package manager
-(require 'package)
-(setq package-user-dir (expand-file-name "~/.emacs.d/packages"))
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/")
-             '("marmalade" . "http://marmalade-repo.org/packages/")
-             )
-(package-initialize)
-
 (defmacro with-system (type &rest body)
   "Evaluate body if `system-type' equals type."
   `(when (eq system-type ,type)
@@ -36,35 +27,6 @@
  'darwin
  (setq interprogram-cut-function 'paste-to-osx)
  (setq interprogram-paste-function 'copy-from-osx))
-
-(require 'cl)
-(defvar require-packages
-  '(
-    auto-complete
-    go-mode
-    js2-mode
-    web-mode
-    csv-mode
-    coffee-mode
-    graphviz-dot-mode
-    haml-mode
-    php-mode
-    scss-mode
-    markdown-mode
-    yaml-mode
-    whitespace
-    molokai-theme
-    projectile
-    projectile-rails
-    ))
-
-(let ((not-installed (loop for x in require-packages
-                           when (not (package-installed-p x))
-                           collect x)))
-  (when not-installed
-    (package-refresh-contents)
-    (dolist (pkg not-installed)
-      (package-install pkg))))
 
 ;;自動でsymlinkをフォローする。
 (setq vc-follow-symlinks t)
