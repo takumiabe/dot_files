@@ -1,3 +1,9 @@
+;; ~/.emacs.d/site-lisp 以下全部読み込み
+(let ((default-directory (expand-file-name "~/.emacs.d/site-lisp")))
+  (add-to-list 'load-path default-directory)
+  (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
+      (normal-top-level-add-subdirs-to-load-path)))
+
 ; package manager
 (require 'package)
 (setq package-user-dir (expand-file-name "~/.emacs.d/packages"))
@@ -26,14 +32,6 @@
  'darwin
  (setq interprogram-cut-function 'paste-to-osx)
  (setq interprogram-paste-function 'copy-from-osx))
-
-;;自分用のロードパスの設定
-(setq load-path
-      (append
-       (list
-        (expand-file-name "~/.emacs.d/site-lisp")
-        )
-       load-path))
 
 (require 'cl)
 (defvar require-packages
