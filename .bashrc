@@ -81,6 +81,7 @@ fi
 alias ll='ls -lF'
 alias la='ls -A'
 alias l='ls -CF'
+alias emacs='emacs -nw'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -111,8 +112,10 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 # RuByENV configure
-if hash rbenv 2>/dev/null; then
+if [ -d $HOME/.rbenv ]; then
     export PATH="$HOME/.rbenv/bin:$PATH"
+fi
+if hash rbenv 2>/dev/null; then
     eval "$(rbenv init -)"
 fi
 
