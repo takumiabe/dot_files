@@ -6,4 +6,5 @@
 
 (require 'init-loader)
 (setq init-loader-show-log-after-init nil)
+(setq init-loader-byte-compile t) ;; inits/以下を自動でbyte-compile する
 (init-loader-load "~/.emacs.d/inits")
