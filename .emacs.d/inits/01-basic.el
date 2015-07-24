@@ -9,6 +9,10 @@
 (global-linum-mode t)
 (setq linum-format "%3d  ")
 
+;;行・列番号
+(line-number-mode t)
+(column-number-mode t)
+
 ;;表示が乱れるのでmenuを非表示にする
 (menu-bar-mode -1)
 
