@@ -13,6 +13,7 @@
     auto-complete
     go-mode
     js2-mode
+    less-css-mode
     web-mode
     csv-mode
     coffee-mode
