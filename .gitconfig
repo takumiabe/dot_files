@@ -2,8 +2,8 @@
     br = branch
     ci = commit
     co = checkout
-    d = diff
-    dc = diff --cached
+    d = diff -M
+    dc = diff --cached -M
     f = ls-files
     l = log
     ll = log --graph
