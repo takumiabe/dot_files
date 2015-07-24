@@ -5,7 +5,8 @@
     d = diff -M
     dc = diff --cached -M
     f = ls-files
-    l = log
+    lg = log
+    l = log --graph --all --simplify-by-decoration
     ll = log --graph
     lll = log --graph --all
     st = status
