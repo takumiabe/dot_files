@@ -9,6 +9,7 @@
     l = log --graph --all --simplify-by-decoration
     ll = log --graph
     lll = log --graph --all
+    noff = merge --no-ff
     st = status
 [color]
     ui = auto
