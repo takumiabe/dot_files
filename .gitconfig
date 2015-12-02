@@ -19,6 +19,13 @@
 [log]
     date = short
 [format]
-    pretty = %C(yellow)%h%Cblue%d%Creset %s %C(green bold)%an, %ad(%ar)%Creset
+    # logのフォーマットを short-hash / (ref names) / commit message / commiter / author-date / (author-relative time) に変更
+    pretty = %x09%C(yellow)%h%C(blue)%d%C(reset) %s %C(green bold)%an, %ad(%ar)%C(reset)
 [push]
+    # 引数なしpush時に、現在のブランチのみをpushする
     default = current
+[core]
+    # コメント文字を#から;に変更する
+    commentchar = ";"
+    # 非ASCII文字を含むパスをエスケープしない
+    quotepath = false
