@@ -26,9 +26,10 @@
 (setq completion-ignore-case t)
 
 ;;スクロール量の調整
-(setq-default scroll-conservatively 35
+(setq-default scroll-conservatively 1
               scroll-margin 0
               scroll-step 4)
+(setq-default next-screen-context-lines 10)
 
 ;; インデントはspaceで
 (setq-default indent-tabs-mode nil)
