@@ -27,6 +27,7 @@
     molokai-theme
     projectile
     projectile-rails
+    textile-mode
     ))
 
 (let ((not-installed (loop for x in require-packages
