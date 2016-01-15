@@ -12,4 +12,10 @@
 
 (add-hook 'web-mode-hook
           (lambda ()
+            (setq web-mode-code-indent-offset
+                  (cond
+                   ((string-match "\.php$" (or (buffer-name) "")) 2)
+                   ((string-match "\.erb$" (or (buffer-name) "")) 2)
+                   (t 4)))
+            (setq web-mode-markup-indent-offset 2)
             (append ac-modes (list 'web-mode))))
