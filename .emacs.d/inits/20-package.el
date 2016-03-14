@@ -11,6 +11,7 @@
 (defvar require-packages
   '(
     auto-complete
+    nyan-mode
     go-mode
     js2-mode
     less-css-mode

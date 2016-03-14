@@ -1,6 +1,10 @@
 ;; color-theme molokai
 (require 'molokai-theme)
 
+(require 'nyan-mode)
+(nyan-mode)
+(nyan-start-animation)
+
 ;; 現在の行をハイライトする
 (defface hlline-face
   '(
