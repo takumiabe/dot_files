@@ -3,6 +3,7 @@
              (setq c-basic-offset 4)
              (setq tab-width 4)
              (setq indent-tabs-mode nil)
+             (c-set-offset 'case-label '+)
              (auto-complete-mode)
              ))
 
