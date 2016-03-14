@@ -10,6 +10,6 @@
 
 ;; hide-show minor用のキーバインド(Ctrl-\)
 (require 'hideshow)
-(global-set-key (kbd "C-\\") 'hs-toggle-hiding)
+(global-set-key (kbd "C-;") 'hs-toggle-hiding)
 ;; 検索で開かないようにする
 (setq hs-isearch-open nil)

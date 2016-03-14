@@ -1,4 +1,5 @@
 ;; Macで\を上手く出せない問題
+(define-key global-map [?¥] [?\\])
 (define-key global-map [?\M-¥] [?\M-\\])
 (define-key global-map [?\M-|] 'indent-region)
 
