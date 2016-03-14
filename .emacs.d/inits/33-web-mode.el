@@ -1,3 +1,4 @@
+(add-to-list 'ac-modes 'web-mode)
 
 ;; web-mode
 (require 'web-mode)
@@ -18,4 +19,4 @@
                    ((string-match "\.erb$" (or (buffer-name) "")) 2)
                    (t 4)))
             (setq web-mode-markup-indent-offset 2)
-            (append ac-modes (list 'web-mode))))
+            ))
