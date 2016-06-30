@@ -1,4 +1,5 @@
 [alias]
+    a = add -A .
     br = branch
     ci = commit
     co = checkout
@@ -24,6 +25,8 @@
 [push]
     # 引数なしpush時に、現在のブランチのみをpushする
     default = current
+[rebase]
+    autosquash = true
 [core]
     # コメント文字を#から;に変更する
     commentchar = ";"
