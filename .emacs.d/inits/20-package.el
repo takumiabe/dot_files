@@ -22,6 +22,7 @@
     haml-mode
     php-mode
     scss-mode
+    sass-mode
     markdown-mode
     yaml-mode
     whitespace
