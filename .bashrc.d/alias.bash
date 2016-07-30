@@ -5,7 +5,7 @@ alias la='ls -A'
 alias ll='ls -l'
 alias lll='ls -la'
 alias grep='grep --color=auto'
-alias sed='gsed'
+# alias sed='gsed'
 alias diff='colordiff'
 
 alias e="emacsclient -t -a ''"
