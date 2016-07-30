@@ -12,8 +12,8 @@ alias e="emacsclient -t -a ''"
 alias ee="emacsclient -e '(kill-emacs)'"
 alias emacs="e"
 
-# SSH bgcolor (use $PRODUCTION_HOST)
-alias ssh='$HOME/dot_files/ssh-host-color'
+# # SSH bgcolor (use $PRODUCTION_HOST)
+# alias ssh='$HOME/dot_files/ssh-host-color'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
