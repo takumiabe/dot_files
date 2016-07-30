@@ -3,3 +3,5 @@
 .emacs.d/packages
 .emacs.d/projectile-bookmarks.eld
 .emacs.d/inits/*.elc
+
+.bashrc.d/localsettings.bash
