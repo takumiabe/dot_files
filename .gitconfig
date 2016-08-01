@@ -19,6 +19,8 @@
     email = abe@engraphia.com
 [log]
     date = short
+[diff]
+    compactionHeuristic = true
 [format]
     # logのフォーマットを short-hash / (ref names) / commit message / commiter / author-date / (author-relative time) に変更
     pretty = %x09%C(yellow)%h%C(blue)%d%C(reset) %s %C(green bold)%an, %ad(%ar)%C(reset)
