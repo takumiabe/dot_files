@@ -5,9 +5,12 @@
     co = checkout
     d = diff -M
     dc = diff --cached -M
-    f = ls-files
+    ls = ls-files
+    fi = "!f() { git commit --fixup=\"$1\"; }; f"
+    cat = "!f() { if [[ $2 = \"\" ]]; then git cat-file -p HEAD:$1; else git cat-file -p $1:$2; fi; }; f"
     lg = log
-    l = log --graph --all --simplify-by-decoration
+    l = log --graph --simplify-by-decoration
+    la = log --graph --all --simplify-by-decoration
     ll = log --graph
     lll = log --graph --all
     noff = merge --no-ff
@@ -30,7 +33,5 @@
 [rebase]
     autosquash = true
 [core]
-    # コメント文字を#から;に変更する
-    commentchar = ";"
     # 非ASCII文字を含むパスをエスケープしない
     quotepath = false
