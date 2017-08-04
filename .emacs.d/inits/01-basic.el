@@ -6,7 +6,7 @@
 (setq inhibit-startup-message t)
 
 ;;行番号
-(global-linum-mode t)
+(global-linum-mode nil)
 (setq linum-format "%3d  ")
 
 ;;行・列番号

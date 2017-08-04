@@ -29,6 +29,7 @@
     molokai-theme
     projectile
     projectile-rails
+    swift3-mode
     textile-mode
     ))
 
