@@ -1,3 +1,5 @@
+.DS_Store
+
 .emacs.d/ac-comphist.dat
 .emacs.d/auto-save-list/
 .emacs.d/packages
@@ -5,3 +7,12 @@
 .emacs.d/inits/*.elc
 
 .bashrc.d/localsettings.bash
+
+## for atom
+.node-gyp
+.atom/*
+!.atom/config.cson
+!.atom/github.cson
+!.atom/packages.txt
+!.atom/snippets.cson
+!.atom/styles.less

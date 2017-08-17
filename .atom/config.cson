@@ -1,0 +1,65 @@
+"*":
+  core:
+    automaticallyUpdate: false
+    disabledPackages: [
+      "github"
+      "markdown-preview"
+    ]
+    telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "monokai"
+    ]
+  editor:
+    fontFamily: "Myrica M"
+    fontSize: 18
+    invisibles:
+      space: "･"
+    preferredLineLength: 120
+    showIndentGuide: true
+    showInvisibles: true
+  "exception-reporting":
+    userId: "ed90d359-e434-4fbb-888a-8bce065dde3f"
+  "git-blame":
+    columnWidth: 317
+  "git-projects":
+    rootPath: "/Users/takumiabe/work"
+    sortBy: "Latest modification date"
+  "markdown-preview-enhanced": {}
+  minimap:
+    plugins:
+      "git-diff": true
+      "git-diffDecorationsZIndex": 0
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+      "minimap-autohide": true
+      "minimap-autohideDecorationsZIndex": 0
+  "platformio-ide-terminal":
+    ansiColors:
+      normal:
+        black: "#1f1f1f"
+        blue: "#2f42fe"
+        cyan: "#00bbcd"
+        green: "#00bb00"
+        magenta: "#bb00bb"
+        red: "#bb0000"
+        white: "#bbbbbb"
+        yellow: "#bbbb00"
+      zBright:
+        brightBlack: "#555555"
+        brightBlue: "#5500ff"
+        brightCyan: "#55ffff"
+        brightGreen: "#55ff00"
+        brightMagenta: "#ff55ff"
+        brightRed: "#ff5555"
+    core:
+      mapTerminalsTo: "File"
+      scrollback: 10000
+      shell: "/usr/local/bin/bash"
+    style:
+      fontFamily: "MyricaM"
+      fontSize: "16"
+    toggles:
+      autoClose: true
+  welcome:
+    showOnStartup: false
