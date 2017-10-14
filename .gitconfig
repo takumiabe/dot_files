@@ -35,3 +35,6 @@
 [core]
     # 非ASCII文字を含むパスをエスケープしない
     quotepath = false
+
+    # 色付きless
+    pager = less -R
