@@ -15,3 +15,12 @@ if [[ "$(type -t __git_ps1)" = "function" ]]; then
     export PS1="[${HOST} ${DIR}${GIT}]\n${P} "
     unset HOST DIR GIT DOLLAR
 fi
+
+
+if [[ "$(uname)" = "Linux" ]]; then
+    export GIT_EDITOR=vim
+elif [[ "$(uname)" = "Darwin" ]]; then
+    export GIT_EDITOR=atom
+else
+    :
+fi
