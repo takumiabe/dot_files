@@ -19,3 +19,12 @@ fi
 if which nodenv > /dev/null; then
   eval "$(nodenv init -)"
 fi
+
+if [[ -d $HOME/.goenv ]]; then
+    export PATH="$HOME/.goenv/bin:$PATH"
+fi
+
+if which goenv > /dev/null; then
+    export GOENV_ROOT="$HOME/.goenv"
+    eval "$(goenv init -)"
+fi
