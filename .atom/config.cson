@@ -1,10 +1,14 @@
 "*":
   core:
-    automaticallyUpdate: false
+    closeDeletedFileTabs: true
     disabledPackages: [
       "github"
       "markdown-preview"
     ]
+    packagesWithKeymapsDisabled: [
+      "markdown-table-formatter"
+    ]
+    projectHome: "/Users/takumiabe/my"
     telemetryConsent: "no"
     themes: [
       "one-dark-ui"
@@ -23,7 +27,7 @@
   "git-blame":
     columnWidth: 317
   "git-projects":
-    rootPath: "/Users/takumiabe/work"
+    rootPath: "/Users/takumiabe/work;/Users/takumiabe/study;/Users/takumiabe/my"
     sortBy: "Latest modification date"
   "markdown-preview-enhanced": {}
   minimap:
@@ -61,5 +65,10 @@
       fontSize: "16"
     toggles:
       autoClose: true
+      runInsertedText: false
+  "show-invisibles-plus":
+    borders: {}
+    placeholders:
+      space: "･"
   welcome:
     showOnStartup: false
