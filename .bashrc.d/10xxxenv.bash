@@ -29,3 +29,7 @@ if which goenv > /dev/null; then
     export GOENV_ROOT="$HOME/.goenv"
     eval "$(goenv init -)"
 fi
+
+if which pyenv > /dev/null; then
+  eval "$(pyenv init -)"
+fi
