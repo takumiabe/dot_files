@@ -59,7 +59,6 @@
     core:
       mapTerminalsTo: "File"
       scrollback: 10000
-      shell: "/usr/local/bin/bash"
     style:
       fontFamily: "MyricaM"
       fontSize: "16"
