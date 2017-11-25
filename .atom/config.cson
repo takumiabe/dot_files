@@ -40,7 +40,7 @@
   "git-diff":
     showIconsInEditorGutter: true
   "git-projects":
-    rootPath: "/Users/takumiabe/work;/Users/takumiabe/study;/Users/takumiabe/my"
+    rootPath: "/home/tak/work;/home/tak/study;/home/tak/my"
     sortBy: "Latest modification date"
   "markdown-preview-enhanced":
     imageDropAction: "do nothing"
