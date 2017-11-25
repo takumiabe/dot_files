@@ -6,8 +6,8 @@
     d = diff -M
     dc = diff --cached -M
     ls = ls-files
-    fi = "!f() { if [[ \"$1\" = \"\" ]]; then git commit --amend --no-edit; else git commit --fixup=\"$1\"; fi }; f"
-    cat = "!f() { if [[ $2 = \"\" ]]; then git cat-file -p HEAD:$1; else git cat-file -p $1:$2; fi; }; f"
+    fi = "!f() { if [ \"$1\" = \"\" ]; then git commit --amend --no-edit; else git commit --fixup=\"$1\"; fi }; f"
+    cat = "!f() { if [ $2 = \"\" ]; then git cat-file -p HEAD:$1; else git cat-file -p $1:$2; fi; }; f"
     lg = log
     l = log --graph --simplify-by-decoration
     la = log --graph --all --simplify-by-decoration
