@@ -71,6 +71,7 @@
         yellow: "#bbbb00"
     core:
       scrollback: 10000
+      shell: "/usr/local/bin/bash"
     style:
       defaultPanelHeight: "50%"
       fontSize: "16"
