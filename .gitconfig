@@ -1,5 +1,5 @@
 [alias]
-    a = add -A .
+    a = add -u
     br = branch
     ci = commit
     co = checkout
