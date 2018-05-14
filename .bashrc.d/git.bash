@@ -20,7 +20,7 @@ fi
 if [[ "$(uname)" = "Linux" ]]; then
     export GIT_EDITOR=vim
 elif [[ "$(uname)" = "Darwin" ]]; then
-    export GIT_EDITOR="atom --wait"
+    export GIT_EDITOR=vim
 else
     :
 fi
