@@ -26,6 +26,8 @@
     userId: "ed90d359-e434-4fbb-888a-8bce065dde3f"
   "git-blame":
     columnWidth: 317
+  "git-diff":
+    showIconsInEditorGutter: true
   "git-projects":
     rootPath: "/Users/takumiabe/work;/Users/takumiabe/study;/Users/takumiabe/my"
     sortBy: "Latest modification date"
