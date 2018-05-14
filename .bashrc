@@ -2,9 +2,6 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# If not running interactively, don't do anything
-[ -z "$PS1" ] && return
-
 # .bash.d/ を読む
 if [ -d "${HOME}/.bashrc.d" ] ; then
     for f in "${HOME}"/.bashrc.d/*.bash ; do
@@ -12,3 +9,6 @@ if [ -d "${HOME}/.bashrc.d" ] ; then
     done
     unset f
 fi
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
