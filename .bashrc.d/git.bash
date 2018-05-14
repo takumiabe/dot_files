@@ -13,7 +13,7 @@ if [[ "$(type -t __git_ps1)" = "function" ]]; then
     P="${BBlue}\$${Color_Off}" # escape twice
 
     export PS1="[${HOST} ${DIR}${GIT}]\n${P} "
-    unset HOST DIR GIT DOLLAR
+    unset HOST DIR GIT DOLLAR P
 fi
 
 
