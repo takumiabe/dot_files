@@ -12,6 +12,7 @@
 .node-gyp
 .atom/*
 !.atom/config.cson
+!.atom/keymap.cson
 !.atom/github.cson
 !.atom/packages.txt
 !.atom/snippets.cson

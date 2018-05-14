@@ -1,0 +1,11 @@
+'body':
+  'cmd-o': 'advanced-open-file:toggle'
+
+'.platform-darwin atom-workspace':
+  'cmd-@': 'platformio-ide-terminal:toggle'
+
+'atom-text-editor:not([mini])':
+  'alt-up': 'rectangle-selection:select-up'
+  'alt-down': 'rectangle-selection:select-down'
+  'alt-right': 'rectangle-selection:select-right'
+  'alt-left': 'rectangle-selection:select-left'
