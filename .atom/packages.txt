@@ -1,5 +1,6 @@
 Sublime-Style-Column-Selection@1.7.4
 advanced-open-file@0.16.8
+atomic-emacs@0.12.1
 git-blame@1.6.0
 git-projects@1.17.0
 goto-definition@1.3.4

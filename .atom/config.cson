@@ -1,4 +1,6 @@
 "*":
+  "atomic-emacs":
+    alwaysUseKillRing: true
   core:
     closeDeletedFileTabs: true
     disabledPackages: [
