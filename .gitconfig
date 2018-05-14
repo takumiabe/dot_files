@@ -14,7 +14,7 @@
     ll = log --graph --topo-order
     lll = log --graph --all --topo-order
     noff = merge --no-ff
-    st = status
+    st = status --short --branch
 [color]
     ui = auto
 [user]
