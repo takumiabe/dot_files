@@ -31,6 +31,7 @@ sequence-diagram@0.0.2
 show-invisibles-plus@0.3.1
 svg-preview@0.12.1
 tablr@1.8.3
+termination@0.6.2
 tree-view-scope-lines@0.2.0
 warn-before-quitting@0.1.7
 

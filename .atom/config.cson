@@ -42,7 +42,11 @@
       "highlight-selectedDecorationsZIndex": 0
       "minimap-autohide": true
       "minimap-autohideDecorationsZIndex": 0
-  "platformio-ide-terminal":
+  "show-invisibles-plus":
+    borders: {}
+    placeholders:
+      space: "･"
+  termination:
     ansiColors:
       normal:
         black: "#1f1f1f"
@@ -64,14 +68,11 @@
       mapTerminalsTo: "File"
       scrollback: 10000
     style:
+      defaultPanelHeight: "50%"
       fontFamily: "MyricaM"
       fontSize: "16"
     toggles:
       autoClose: true
       runInsertedText: false
-  "show-invisibles-plus":
-    borders: {}
-    placeholders:
-      space: "･"
   welcome:
     showOnStartup: false

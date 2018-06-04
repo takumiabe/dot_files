@@ -2,7 +2,7 @@
   'cmd-o': 'advanced-open-file:toggle'
 
 '.platform-darwin atom-workspace':
-  'cmd-@': 'platformio-ide-terminal:toggle'
+  'cmd-@': 'termination:toggle'
 
 'atom-text-editor:not([mini])':
   'alt-up': 'rectangle-selection:select-up'
