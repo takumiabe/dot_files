@@ -13,6 +13,7 @@ language-haml@0.31.1
 language-ini@1.20.0
 language-rspec@0.10.0
 language-swift@0.5.0
+language-systemd@0.1.1
 language-terraform@0.8.1
 markdown-preview-enhanced@0.15.6
 markdown-table-formatter@2.9.2
