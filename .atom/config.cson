@@ -33,7 +33,9 @@
   "git-projects":
     rootPath: "/Users/takumiabe/work;/Users/takumiabe/study;/Users/takumiabe/my"
     sortBy: "Latest modification date"
-  "markdown-preview-enhanced": {}
+  "markdown-preview-enhanced":
+    imageDropAction: "do nothing"
+    singlePreview: false
   minimap:
     plugins:
       "git-diff": true
@@ -65,7 +67,6 @@
         brightMagenta: "#ff55ff"
         brightRed: "#ff5555"
     core:
-      mapTerminalsTo: "File"
       scrollback: 10000
     style:
       defaultPanelHeight: "50%"
