@@ -12,11 +12,21 @@ if which brew > /dev/null; then
     fi
 fi
 
+# sharing history each bash instances
+function share_history {
+    history -a
+    history -c
+    history -r
+}
+PROMPT_COMMAND='share_history'
+
 # append to the history file, don't overwrite itD
 shopt -s histappend
+
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
 export HISTCONTROL=ignoredups:ignorespace
+
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 export HISTSIZE=10000
 export HISTFILESIZE=10000
