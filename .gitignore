@@ -17,3 +17,5 @@
 !.atom/packages.txt
 !.atom/snippets.cson
 !.atom/styles.less
+!.atom/install-packages-text.sh
+!.atom/update-packages-text.sh
