@@ -6,6 +6,7 @@
     disabledPackages: [
       "github"
       "markdown-preview"
+      "spell-check"
     ]
     packagesWithKeymapsDisabled: [
       "markdown-table-formatter"
