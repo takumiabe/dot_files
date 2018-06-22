@@ -42,8 +42,8 @@
       "git-diffDecorationsZIndex": 0
       "highlight-selected": true
       "highlight-selectedDecorationsZIndex": 0
-      "minimap-autohide": true
-      "minimap-autohideDecorationsZIndex": 0
+      "minimap-autohider": true
+      "minimap-autohiderDecorationsZIndex": 0
   "show-invisibles-plus":
     borders: {}
     placeholders:
