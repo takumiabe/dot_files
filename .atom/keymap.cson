@@ -1,7 +1,9 @@
-'body':
-  'cmd-o': 'advanced-open-file:toggle'
+'.platform-linux atom-workspace':
+  'ctrl-o': 'advanced-open-file:toggle'
+  'ctrl-shift-o': 'git-projects:toggle'
 
 '.platform-darwin atom-workspace':
+  'cmd-o': 'advanced-open-file:toggle'
   'cmd-@': 'termination:toggle'
 
 'atom-text-editor:not([mini])':
