@@ -54,19 +54,17 @@
       normal:
         black: "#1f1f1f"
         blue: "#2f42fe"
+        brightBlack: "#555555"
+        brightBlue: "#5500ff"
+        brightGreen: "#55ff00"
+        brightMagenta: "#ff55ff"
+        brightRed: "#ff5555"
         cyan: "#00bbcd"
         green: "#00bb00"
         magenta: "#bb00bb"
         red: "#bb0000"
         white: "#bbbbbb"
         yellow: "#bbbb00"
-      zBright:
-        brightBlack: "#555555"
-        brightBlue: "#5500ff"
-        brightCyan: "#55ffff"
-        brightGreen: "#55ff00"
-        brightMagenta: "#ff55ff"
-        brightRed: "#ff5555"
     core:
       scrollback: 10000
     style:
