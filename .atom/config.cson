@@ -69,7 +69,6 @@
       scrollback: 10000
     style:
       defaultPanelHeight: "50%"
-      fontFamily: "MyricaM"
       fontSize: "16"
     toggles:
       autoClose: true
