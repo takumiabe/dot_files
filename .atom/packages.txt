@@ -29,7 +29,7 @@ regex-railroad-diagram@0.19.4
 rspec@0.4.0
 rspec-snippets@0.4.0
 show-invisibles-plus@0.3.1
-svg-preview@0.12.1
+svg-preview@0.14.0
 tablr@1.8.3
 termination@0.6.3
 tree-view-scope-lines@0.2.0
