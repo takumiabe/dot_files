@@ -19,7 +19,6 @@
     ]
   editor:
     fontFamily: "Myrica M"
-    fontSize: 18
     invisibles:
       space: "･"
     preferredLineLength: 120
