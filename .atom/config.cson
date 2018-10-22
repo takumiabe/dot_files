@@ -3,6 +3,10 @@
     alwaysUseKillRing: true
   core:
     closeDeletedFileTabs: true
+    customFileTypes:
+      "source.yaml": [
+        "gemrc"
+      ]
     disabledPackages: [
       "github"
       "markdown-preview"
