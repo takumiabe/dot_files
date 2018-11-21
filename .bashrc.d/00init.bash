@@ -5,13 +5,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# and for macox
-if which brew > /dev/null; then
-    if [ -f `brew --prefix`/etc/bash_completion ]; then
-        . `brew --prefix`/etc/bash_completion
-    fi
-fi
-
 # sharing history each bash instances
 function share_history {
     history -a
