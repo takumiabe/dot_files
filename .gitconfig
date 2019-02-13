@@ -21,7 +21,7 @@
     name = Takumi Abe
     email = abe@engraphia.com
 [log]
-    date = iso
+    date = format:%m/%d
 [diff]
     compactionHeuristic = true
 [format]
