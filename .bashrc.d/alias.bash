@@ -20,3 +20,7 @@ if which source-highlight > /dev/null; then
   export LESS='-R'
   export LESSOPEN='| ~/dot_files/bin/src-hilite-lesspipe.sh %s'
 fi
+
+if which xdg-open > /dev/null; then
+  alias xo='xdg-open'
+fi
