@@ -25,6 +25,7 @@ minimap-git-diff@4.3.1
 minimap-highlight-selected@4.6.1
 monokai@0.24.0
 pdf-view@0.72.0
+persistent-undo@1.4.0
 rectangle-selection@0.2.0
 regex-railroad-diagram@0.19.4
 rspec@0.4.0
