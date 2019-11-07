@@ -9,21 +9,22 @@ fi
 
 if which brew > /dev/null; then
     # brew-completion
-    if [ -f `brew --prefix`/Homebrew/completions/bash/brew ]; then
-        . `brew --prefix`/Homebrew/completions/bash/brew
-    fi
     if [ -f `brew --prefix bash-completion@2`/share/bash-completion/bash_completion ]; then
       . `brew --prefix bash-completion@2`/share/bash-completion/bash_completion
     fi
     if [ -f `brew --prefix`/share/bash-completion/bash_completion ]; then
       . `brew --prefix`/share/bash-completion/bash_completion
     fi
-    if [ -d `brew --prefix git` ]; then
-      . `brew --prefix`/etc/bash_completion.d/git-prompt.sh
-      . `brew --prefix`/etc/bash_completion.d/git-completion.bash
-    fi
     if which fzf > /dev/null; then
       [ -f `brew --prefix fzf`/shell/completion.bash ] && . `brew --prefix fzf`/shell/completion.bash
       [ -f `brew --prefix fzf`/shell/key-bindings.bash ] && . `brew --prefix fzf`/shell/key-bindings.bash
+    fi
+
+    if [ -d "/usr/local/etc/bash_completion.d" ]; then
+      for f in /usr/local/etc/bash_completion.d/* ; do
+          # symlinkも追う
+          ([ -x "$f" ] || [ -L "$f" ]) && source "$f"
+      done
+      unset f
     fi
 fi
