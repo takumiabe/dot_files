@@ -1,8 +1,3 @@
-if [ -d /usr/local/etc/bash_completion.d ]; then
-    source /usr/local/etc/bash_completion.d/git-prompt.sh
-    source /usr/local/etc/bash_completion.d/git-completion.bash
-fi
-
 # git prompt
 if [[ "$(type -t __git_ps1)" = "function" ]]; then
     export GIT_PS1_SHOWDIRTYSTATE=true

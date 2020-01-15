@@ -18,4 +18,8 @@ if which brew > /dev/null; then
     if [ -f `brew --prefix`/share/bash-completion/bash_completion ]; then
       . `brew --prefix`/share/bash-completion/bash_completion
     fi
+    if [ -d `brew --prefix git` ]; then
+      . `brew --prefix`/etc/bash_completion.d/git-prompt.sh
+      . `brew --prefix`/etc/bash_completion.d/git-completion.bash
+    fi
 fi
