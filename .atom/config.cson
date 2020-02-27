@@ -16,6 +16,9 @@
     packagesWithKeymapsDisabled: [
       "markdown-table-formatter"
     ]
+    packagesWithSnippetsDisabled: [
+      "language-haml"
+    ]
     projectHome: "/Users/takumiabe/my"
     telemetryConsent: "no"
     themes: [
