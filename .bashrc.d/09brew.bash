@@ -22,4 +22,8 @@ if which brew > /dev/null; then
       . `brew --prefix`/etc/bash_completion.d/git-prompt.sh
       . `brew --prefix`/etc/bash_completion.d/git-completion.bash
     fi
+    if which fzf > /dev/null; then
+      [ -f `brew --prefix fzf`/shell/completion.bash ] && . `brew --prefix fzf`/shell/completion.bash
+      [ -f `brew --prefix fzf`/shell/key-bindings.bash ] && . `brew --prefix fzf`/shell/key-bindings.bash
+    fi
 fi
