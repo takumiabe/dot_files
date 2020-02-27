@@ -38,3 +38,5 @@
 
     # 色付きless
     pager = less -R
+
+    editor = atom --wait
