@@ -27,6 +27,7 @@
     ]
   editor:
     fontFamily: "\"Inconsolata\""
+    fontSize: 24
     invisibles:
       space: "･"
     preferredLineLength: 120
