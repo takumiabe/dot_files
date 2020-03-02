@@ -24,6 +24,7 @@
     ]
   editor:
     fontFamily: "Myrica M"
+    fontSize: 17
     invisibles:
       space: "･"
     preferredLineLength: 120
@@ -74,6 +75,7 @@
       shell: "/usr/local/bin/bash"
     style:
       defaultPanelHeight: "50%"
+      fontFamily: "MyricaM M"
       fontSize: "16"
     toggles:
       autoClose: true
