@@ -7,8 +7,8 @@ if which direnv > /dev/null; then
 fi
 
 if which rbenv > /dev/null; then
+    export RUBY_BUILD_CACHE_PATH=$(rbenv root)/cache
     eval "$(rbenv init -)"
-    export RUBY_BUILD_CACHE_PATH=$(rbenv root)/srcs
 fi
 
 if which phpenv > /dev/null; then

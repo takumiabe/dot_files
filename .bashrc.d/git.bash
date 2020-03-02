@@ -1,3 +1,5 @@
+alias gti='git'
+
 # git prompt
 if [[ "$(type -t __git_ps1)" = "function" ]]; then
     export GIT_PS1_SHOWDIRTYSTATE=true

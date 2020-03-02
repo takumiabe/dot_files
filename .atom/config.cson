@@ -2,12 +2,15 @@
   "atomic-emacs":
     alwaysUseKillRing: true
   core:
+    allowPendingPaneItems: false
+    audioBeep: false
     closeDeletedFileTabs: true
     closeEmptyWindows: false
     customFileTypes:
       "source.yaml": [
         "gemrc"
       ]
+    destroyEmptyPanes: false
     disabledPackages: [
       "github"
       "markdown-preview"
@@ -24,7 +27,7 @@
     ]
   editor:
     fontFamily: "Myrica M"
-    fontSize: 17
+    fontSize: 18
     invisibles:
       space: "･"
     preferredLineLength: 120
@@ -80,5 +83,9 @@
     toggles:
       autoClose: true
       runInsertedText: false
+  "tree-view": {}
   welcome:
     showOnStartup: false
+  whitespace:
+    ensureSingleTrailingNewline: false
+    removeTrailingWhitespace: false

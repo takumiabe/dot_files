@@ -23,7 +23,7 @@ export HISTCONTROL=ignoredups:ignorespace
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 export HISTSIZE=10000
 export HISTFILESIZE=10000
-export HISTIGNORE="fg*:bg*:history*:cd*:ls:ll"
+export HISTIGNORE="fg*:bg*:history*:cd*:ls:ll:atom*:git reset*:git push*:git fi*:git ci -m*:"
 export LANG=ja_JP.UTF-8
 
 # check the window size after each command and, if necessary,
