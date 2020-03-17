@@ -3,6 +3,7 @@
     alwaysUseKillRing: true
   core:
     closeDeletedFileTabs: true
+    closeEmptyWindows: false
     customFileTypes:
       "source.yaml": [
         "gemrc"
