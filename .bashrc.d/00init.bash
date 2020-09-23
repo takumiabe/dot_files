@@ -24,7 +24,7 @@ export HISTCONTROL=ignoredups:ignorespace
 export HISTSIZE=10000
 export HISTFILESIZE=10000
 export HISTIGNORE="fg*:bg*:history*:cd*:ls:ll"
-export LANG=ja_JP.UTF-8
+export LANG=ja_JP.utf8
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
