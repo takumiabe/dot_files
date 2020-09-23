@@ -8,20 +8,15 @@ if [[ "$(uname)" = "Linux" ]] && [[ -d $HOME/.linuxbrew ]] ; then
 fi
 
 if which brew > /dev/null; then
+    # PREFIX=`brew --prefix`
+    PREFIX=$HOME/.linuxbrew
     # brew-completion
-    if [ -f `brew --prefix`/Homebrew/completions/bash/brew ]; then
-        . `brew --prefix`/Homebrew/completions/bash/brew
+    if [ -f $PREFIX/Homebrew/completions/bash/brew ]; then
+        . $PREFIX/Homebrew/completions/bash/brew
     fi
-    if [ -f `brew --prefix bash-completion@2`/share/bash-completion/bash_completion ]; then
-      . `brew --prefix bash-completion@2`/share/bash-completion/bash_completion
-    fi
-    if [ -f `brew --prefix`/share/bash-completion/bash_completion ]; then
-      . `brew --prefix`/share/bash-completion/bash_completion
-    fi
-    if [ -d `brew --prefix git` ]; then
-      . `brew --prefix`/etc/bash_completion.d/git-prompt.sh
-      . `brew --prefix`/etc/bash_completion.d/git-completion.bash
-    fi
+    for file in $PREFIX/etc/bash_completion.d/* ; do
+      . $file
+    done
     if which fzf > /dev/null; then
       [ -f `brew --prefix fzf`/shell/completion.bash ] && . `brew --prefix fzf`/shell/completion.bash
       [ -f `brew --prefix fzf`/shell/key-bindings.bash ] && . `brew --prefix fzf`/shell/key-bindings.bash
