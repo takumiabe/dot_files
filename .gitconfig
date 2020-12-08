@@ -41,3 +41,6 @@
 
     # 改行文字の読み替え
     autocrlf = false
+
+[init]
+    defaultBranch = main
