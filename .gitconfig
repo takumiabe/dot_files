@@ -38,3 +38,6 @@
 
     # 色付きless
     pager = less -R
+
+    # 改行文字の読み替え
+    autocrlf = false
