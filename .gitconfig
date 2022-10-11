@@ -30,6 +30,9 @@
 [push]
     # 引数なしpush時に、現在のブランチのみをpushする
     default = current
+[pull]
+    # pull対象を指定しないときはff-onlyとする
+    ff = only
 [rebase]
     autosquash = true
     autoStash = yes
