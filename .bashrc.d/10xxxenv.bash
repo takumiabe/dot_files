@@ -9,6 +9,9 @@ fi
 if which rbenv > /dev/null; then
     eval "$(rbenv init -)"
     export RUBY_BUILD_CACHE_PATH=$(rbenv root)/srcs
+    if ! [[ -d $RUBY_BUILD_CACHE_PATH ]]; then
+        mkdir -p $RUBY_BUILD_CACHE_PATH
+    fi
 fi
 
 if which phpenv > /dev/null; then
